@@ -1,13 +1,36 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "helvetica";
+}
+
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: "helvetica";
+  src: url("./assets/fonts/helvetica-neu.ttf");
+}
+
+@font-face {
+  font-family: "merriweather";
+  src: url("./assets/fonts/Merriweather-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Darkest";
+  src: url("./assets/fonts/Darkest-Saturday.ttf");
 }

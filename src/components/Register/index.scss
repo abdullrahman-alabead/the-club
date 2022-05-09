@@ -1,0 +1,69 @@
+@use "../../variables" as v;
+
+.header {
+  font-size: 2rem;
+  font-family: "merriweather";
+  font-weight: bold;
+  color: v.$text-color-alt;
+
+  margin-bottom: 3.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 70%;
+
+  input {
+    padding: 1rem;
+    border: 1px solid v.$main-color-3;
+    border-radius: 100px;
+    // border-bottom-right-radius: 0% 10%;
+    background-color: transparent;
+    color: v.$text-color-alt;
+
+    font-size: 1rem;
+    &:focus {
+      outline: none;
+    }
+    &::placeholder {
+      color: v.$text-color-alt;
+
+      opacity: 0.5;
+    }
+  }
+}
+
+.btn {
+  background-color: v.$background-color-2;
+
+  color: v.$text-color-alt;
+
+  border: none;
+  border-bottom: 2px solid v.$background-color-1;
+  padding: 0.8rem;
+  width: fit-content;
+  align-self: center;
+  font-size: 1.3rem;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.goto-login,
+.goto-signin {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: v.$background-color-2;
+
+  color: v.$text-color-alt;
+
+  border: none;
+  border-bottom: 2px solid v.$background-color-1;
+  padding: 0.8rem;
+  width: fit-content;
+  border-radius: 5px;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
