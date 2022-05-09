@@ -4,7 +4,7 @@ import Sidebar from '../Sidebar';
 import React from 'react';
 import TextPost from './components/TextPost';
 import { auth, database } from '../../firebaseConfig'
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged, updateProfile } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { newPostActions } from '../../store/newPostSlice';
@@ -29,6 +29,8 @@ export default function Home() {
       )
     },[])
   })
+
+  updateProfile(auth.currentUser, {photoURL: 'https://firebasestorage.googleapis.com/v0/b/the-club-1.appspot.com/o/Nolan.png?alt=media&token=8b33e551-8548-4eb0-b98d-547177d1e2b5'})
   
   // send post
   let postsCollectionRef = collection(database, 'posts')
@@ -58,7 +60,6 @@ export default function Home() {
     })
   }, [postsLength])
 
-
     
   return (loggedin && 
     <>
@@ -69,7 +70,7 @@ export default function Home() {
         <input className='new-post-text' placeholder='What are you thinking about ?!' onChange={(e) => {dispatch(newPostActions.updatePostText({text:e.target.value, time: Date.now()}))}}/>
         <div className='buttons' >
         <button className='send-post' onClick={sendPost}><FontAwesomeIcon icon={faPaperPlane} /></button>
-        <button className='add-image'><FontAwesomeIcon icon={faImage} /></button>
+        <button className='add-image' onClick={() => alert("Under Maintenance")}><FontAwesomeIcon icon={faImage} /></button>
         </div>
       </li>
       {posts && posts.map(post => {return <TextPost {...post} />})}

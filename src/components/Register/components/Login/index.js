@@ -3,7 +3,7 @@ import googleIcon from '../../../../assets/images/google-icon.png'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import {auth} from '../../../../firebaseConfig'
-import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
+import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from 'firebase/auth'
 
 export default function Login(props) {
   let [data, setData] = React.useState({})
@@ -29,6 +29,15 @@ export default function Login(props) {
     .catch(err => console.log(err))
     
   }
+
+  // check if signed in
+  React.useEffect(() => {
+    onAuthStateChanged(auth, user => {
+      if(user){
+        navigate('/home')
+      }
+    },[])
+  })
 
 
   // goto signin

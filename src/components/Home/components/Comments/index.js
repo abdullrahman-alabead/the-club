@@ -19,6 +19,7 @@ export default function Comments(props) {
   // send Comment
   let [comment, setComment] = React.useState('')
   function sendComment() {
+    document.querySelector('.my-comment').value = ''
     addDoc(commentsCollectionRef, {comment: comment})
   }
   return(

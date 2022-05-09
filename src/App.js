@@ -1,5 +1,5 @@
 import './App.scss';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, HashRouter, Route, Routes } from 'react-router-dom'
 import Register from './components/Register';
 import Home from './components/Home';
 import { auth } from './firebaseConfig';
@@ -12,12 +12,12 @@ function App() {
   return (
     
     <div className="App">
-      <Router>
+      <HashRouter>
         <Routes>
         <Route path='/' element={<Register />} />
         <Route path='/home' element={<Home />} />
         </Routes>
-      </Router>
+      </HashRouter>
     </div>
   );
 }

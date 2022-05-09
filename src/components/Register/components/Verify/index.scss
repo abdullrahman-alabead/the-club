@@ -2,6 +2,7 @@
 @import "animate.css";
 
 .verify-container {
+  width: 700px;
   animation: fadeIn 0.5s ease-out;
   position: absolute;
   background-image: linear-gradient(
@@ -17,7 +18,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: v.$text-color;
+  color: v.$text-color-alt;
   border-radius: 10px;
 
   .verify-p {
@@ -34,14 +35,14 @@
     border-radius: 5px;
     font-size: 1.3rem;
     font-weight: bold;
-    color: v.$text-color;
+    color: v.$text-color-alt;
   }
   p {
     font-size: 2rem;
     margin-top: 1rem;
   }
   .login-btn {
-    color: v.$text-color;
+    color: v.$text-color-alt;
     border: none;
     font-size: 1.4rem;
     margin-top: 1rem;
@@ -49,5 +50,11 @@
     background-color: v.$background-color-1;
     border-radius: 5px;
     cursor: pointer;
+  }
+}
+
+@media (max-width: 767px) {
+  .verify-container {
+    width: 400px;
   }
 }
