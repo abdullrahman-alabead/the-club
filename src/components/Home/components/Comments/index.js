@@ -6,7 +6,6 @@ import { database } from '../../../../firebaseConfig'
 
 export default function Comments(props) {
   // getComments
-  console.log(props.id)
   let commentsCollectionRef = collection(database, 'posts', `${props.id}`, 'comments')
   let [comments, setComments] = React.useState(null)
   React.useEffect(() => {

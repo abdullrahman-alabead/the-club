@@ -3,12 +3,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsUp, faComment, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import Comments from '../Comments'
+import img from '../../../../assets/images/test.png'
 
 export default function TextPost(props) {
    // toggle comment section
   let [toggleComments, setToggleComments] = React.useState(false)
 
-// console.log(props.id)
+  
+
 
   return(
     <li>
@@ -19,6 +21,7 @@ export default function TextPost(props) {
         </div>
         <div className='post-content'>
           <p className='post-text'>{props.text}</p>
+          {props.imgURL && <img src={props.imgURL} className='post-img' />}
         </div>
         
         </div>

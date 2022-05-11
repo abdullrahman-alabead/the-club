@@ -9,14 +9,11 @@ export const newPostSlice = createSlice({
     userName: '',
     userPic: '',
     sendTime:'',
-    id: ''
+    id: '',
   },
   reducers: {
     updatePostText(state, action) {
-      state.text = action.payload.text;
-      state.sendTime = action.payload.time
-      state.userName = auth.currentUser.displayName
-      state.userPic = auth.currentUser.photoURL
+      state.text = action.payload;
     },
   },
 });

@@ -28,13 +28,27 @@ export default function Sidebar() {
       <div className='toggleSidebar' onClick={toggleUsers}>Users</div>
       <h2 className='sidebar-header'>Users</h2>
       <ul className='users-list'>
-        {users && users.map(user => {
+        
+        {users? users.map(user => {
           let data = user.data();
           return (<li className='user'>
           <img className='user-pic' src={data.photo}/>
           <p className='user-name'>{data.name}</p>
         </li>)
-        })}
+        }) : <><li className='user'>
+        <div className='skeleton-user-pic'/>
+        <p className='skeleton-user-name'></p>
+      </li><li className='user'>
+        <div className='skeleton-user-pic'/>
+        <p className='skeleton-user-name'></p>
+      </li><li className='user'>
+        <div className='skeleton-user-pic'/>
+        <p className='skeleton-user-name'></p>
+      </li><li className='user'>
+        <div className='skeleton-user-pic'/>
+        <p className='skeleton-user-name'></p>
+      </li></>
+      }
       </ul>
     </div>
   )

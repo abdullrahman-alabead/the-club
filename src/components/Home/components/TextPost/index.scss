@@ -23,11 +23,15 @@
     }
   }
   .post-content {
+    width: 100%;
     .post-text {
       font-size: 1.3rem;
       font-weight: 600;
+      margin-bottom: 1rem;
     }
-    // margin-bottom: 2rem;
+    .post-img {
+      width: 100%;
+    }
   }
 }
 .post-buttons {
