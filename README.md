@@ -10,6 +10,7 @@
 
 
 you can add a post, comment on a post, search for users
-this project is stil under development
+
+this project is still under development
 
 Hope You like it <3
