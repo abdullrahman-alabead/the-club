@@ -19,7 +19,6 @@ export default function Signup(props) {
       return { ...prevData, [e.target.name]: e.target.value };
     });
   }
-
   // sign up function
   function signUp(e) {
     e.preventDefault();
@@ -49,11 +48,14 @@ export default function Signup(props) {
 
     createUserWithEmailAndPassword(auth, data.email, data.password)
       .then((user) => {
+        auth.signOut()
         // add user info to firestore
-        updateProfile(auth.currentUser, {displayName: data.nickname, photoURL: 'https://firebasestorage.googleapis.com/v0/b/the-club-1.appspot.com/o/defaultPic.jpg?alt=media&token=ca11e0f6-122d-4fd5-aa7f-65386fcf7f56'})
+        updateProfile(user.user, {displayName: data.nickname, photoURL: 'https://firebasestorage.googleapis.com/v0/b/the-club-1.appspot.com/o/defaultPic.jpg?alt=media&token=ca11e0f6-122d-4fd5-aa7f-65386fcf7f56'})
         .then()
         .catch(err => alert(err.message))
         sendEmailVerification(user.user).then(() => {
+          
+
           addDoc(usersCollectionRef, {name: data.nickname, photo: 'https://firebasestorage.googleapis.com/v0/b/the-club-1.appspot.com/o/defaultPic.jpg?alt=media&token=ca11e0f6-122d-4fd5-aa7f-65386fcf7f56'})
           .then(() => {
 
@@ -61,7 +63,6 @@ export default function Signup(props) {
             "fadeOut 0.5s ease-out forwards";
             
             setTimeout(() => {
-              auth.signOut();
               props.setStage("verify");
             }, 500);
           })

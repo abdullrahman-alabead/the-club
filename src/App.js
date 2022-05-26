@@ -6,6 +6,7 @@ import { auth } from './firebaseConfig';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
+import ChangeInfo from './components/ChangeInfo';
 
 function App() {
   
@@ -16,6 +17,7 @@ function App() {
         <Routes>
         <Route path='/' element={<Register />} />
         <Route path='/home' element={<Home />} />
+        <Route path='/changeInfo' element={<ChangeInfo />} />
         </Routes>
       </HashRouter>
     </div>

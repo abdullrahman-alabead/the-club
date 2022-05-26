@@ -7,8 +7,7 @@ import Login from './components/Login'
 
 export default function Register() {
   // signning stages
-  let [stage, setStage] = React.useState('login')
-
+  let [stage, setStage] = React.useState('signup')
 
   
   return ((stage == 'signup' && <Signup setStage={setStage} />)

@@ -2,9 +2,10 @@ import "./index.scss";
 import { auth } from "../../firebaseConfig";
 import { useDispatch, useSelector } from "react-redux";
 import { searchbarActions } from "../../store/searchbarSlice";
-import { updateProfile } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
+  let navigate = useNavigate();
   // searchbar logic
   let dispatch = useDispatch();
   let { searchText, searchResults, selectedUsers } = useSelector(
@@ -17,15 +18,20 @@ export default function Header() {
   // Drop Menu
   let dropped = false;
   function activatMenu() {
-    let menu = document.querySelector(".log-out");
+    let logOutBtn = document.querySelector(".log-out");
+    let cInfo = document.querySelector(".c-info")
     if (!dropped) {
-      menu.style.animation = "fadeInDown 0.3s ease-out forwards";
-      menu.style.display = "block";
+      logOutBtn.style.animation = "fadeInDown 0.3s ease-out forwards";
+      logOutBtn.style.display = "block";
+      cInfo.style.animation = "fadeInDown 0.3s ease-out forwards";
+      cInfo.style.display = "block";
       dropped = true;
     } else {
-      menu.style.animation = "fadeOut 0.3s ease-out forwards";
+      logOutBtn.style.animation = "fadeOut 0.3s ease-out forwards";
+      cInfo.style.animation = "fadeOut 0.3s ease-out forwards";
       setTimeout(() => {
-        menu.style.display = "none";
+        logOutBtn.style.display = "none";
+        cInfo.style.display = "none";
 
         dropped = false;
       }, 300);
@@ -64,9 +70,10 @@ export default function Header() {
         <button className="d-menu">
           <div className="menu">
             <div className="arrow" onClick={activatMenu}></div>
-            <button className="log-out" onClick={() => auth.signOut()}>
+            <button className="log-out btn" onClick={() => auth.signOut()}>
               Log Out
             </button>
+            <button className="btn c-info" onClick={() => {navigate("/changeInfo")}}>Change user info</button>
           </div>
         </button>
       </div>

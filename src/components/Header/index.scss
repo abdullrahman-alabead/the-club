@@ -89,7 +89,7 @@
         border: 8px solid;
         border-color: v.$text-color transparent transparent transparent;
       }
-      .log-out {
+      .btn {
         position: absolute;
         bottom: -2.5rem;
         left: calc(50% - 2.5rem);
@@ -104,6 +104,9 @@
         font-weight: bold;
         cursor: pointer;
         display: none;
+        &.c-info {
+          bottom: -5.6rem;
+        }
       }
     }
   }
