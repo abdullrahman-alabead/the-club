@@ -1,0 +1,99 @@
+@use "../../_variables.scss" as v;
+
+.change-info-container {
+  animation: fadeIn 0.5s ease-out;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 3rem 1.5rem;
+  background-image: linear-gradient(
+    to bottom left,
+    v.$background-color-1,
+    v.$background-color-2
+  );
+  border-radius: 10px;
+  .info {
+    display: flex;
+    align-items: flex-end;
+    .img-change {
+      display: flex;
+      align-items: center;
+      justify-items: flex-end;
+
+      flex-direction: column;
+      margin-right: 2rem;
+      width: 50%;
+      .user-img {
+        width: 4rem;
+        margin-bottom: 1rem;
+        border-radius: 0.5rem;
+      }
+    }
+    .username-change {
+      margin-left: 2rem;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      .user-name {
+        color: v.$text-color-alt;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+        margin-left: 0.5rem;
+      }
+      .new-name {
+        padding: 1rem;
+        border: 1px solid v.$text-color-alt;
+        border-radius: 100px;
+        background-color: transparent;
+        color: v.$text-color-alt;
+        font-size: 1rem;
+        &:focus {
+          outline: none;
+        }
+        &::placeholder {
+          color: v.$text-color-alt;
+        }
+      }
+    }
+  }
+  .update-photo,
+  .update-info {
+    background-color: v.$background-color-2;
+    color: v.$text-color-alt;
+    border: 2px solid v.$text-color-alt;
+    padding: 0.4rem;
+    width: fit-content;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .update-info {
+    margin-top: 2rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.8rem;
+    font-weight: bold;
+    font-size: 1.3rem;
+  }
+  .goto-home {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: v.$background-color-2;
+
+    color: v.$text-color-alt;
+
+    border: 2px solid v.$text-color-alt;
+
+    padding: 0.8rem;
+    width: fit-content;
+    border-radius: 5px;
+    font-size: 1.3rem;
+    cursor: pointer;
+  }
+}
