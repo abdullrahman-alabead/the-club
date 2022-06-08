@@ -74,7 +74,7 @@ export default function ChangeInfo() {
       <button className='goto-home' onClick={() => navigate('/home')}>Home</button>
       <div className='info'>
         <div className='img-change'>
-          <img src={user.photoURL} className='user-img' />
+          <img src={user.photoURL} className='user-img' alt='user-pic' />
           <button className='update-photo' onClick={() => {document.querySelector('.file-input').click()}}>update Photo</button>
           <input type='file' accept='image/' style={{display: 'none'}} className='file-input' onChange={(e) => {previewImage(e.target.files[0]); setNewImg(e.target.files[0])}}/>
         </div>

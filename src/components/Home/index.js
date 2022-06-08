@@ -98,7 +98,7 @@ export default function Home() {
         setIsSending(false)
         document.querySelector(".file").value = null;}
         )
-        .catch((err) => console.log(err.message));
+        .catch((err) => alert(err.message));
     }
   }
 
@@ -125,15 +125,18 @@ export default function Home() {
   // sending images
   let [img, setImage] = React.useState(null);
 
+  // Html Page
+
   return (
     loggedin && (
       <>
         <Header />
         <Sidebar />
         <ul className="posts-list">
-          <li className="add-post">
+          <li className="add-post"  style={{opacity: isSending? '0.5': '1'}}>
             <input
               className="new-post-text"
+              type='text'
               placeholder="What are you thinking about ?!"
               onChange={(e) => {
                 dispatch(
@@ -157,6 +160,7 @@ export default function Home() {
               <input
                 type="file"
                 className="file"
+                accept="image/*"
                 onChange={(e) => {
                   setImage(e.target.files[0]);
                 }}

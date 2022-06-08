@@ -9,6 +9,7 @@ import {
   updateProfile
 } from "firebase/auth";
 import { collection, addDoc } from 'firebase/firestore'
+import { nanoid } from "nanoid";
 
 export default function Signup(props) {
   // keep track of the input
@@ -56,7 +57,7 @@ export default function Signup(props) {
         sendEmailVerification(user.user).then(() => {
           
 
-          addDoc(usersCollectionRef, {name: data.nickname, photo: 'https://firebasestorage.googleapis.com/v0/b/the-club-1.appspot.com/o/defaultPic.jpg?alt=media&token=ca11e0f6-122d-4fd5-aa7f-65386fcf7f56'})
+          addDoc(usersCollectionRef, {id:nanoid(),name: data.nickname, photo: 'https://firebasestorage.googleapis.com/v0/b/the-club-1.appspot.com/o/defaultPic.jpg?alt=media&token=ca11e0f6-122d-4fd5-aa7f-65386fcf7f56'})
           .then(() => {
 
             document.querySelector(".signup-container").style.animation =

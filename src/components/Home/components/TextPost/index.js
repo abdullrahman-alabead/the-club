@@ -16,7 +16,7 @@ export default function TextPost(props) {
     <li>
         <div className='text-post'>
         <div className='post-user-info'>
-          <img className='post-user-pic' src={props.userPic} />
+          <img className='post-user-pic' src={props.userPic} alt='user-pic' />
           <p className='post-user-name'>{props.userName}</p>
         </div>
         <div className='post-content'>
@@ -28,7 +28,7 @@ export default function TextPost(props) {
         <div className='post-buttons'>
           <button className='comment-button' onClick={() => setToggleComments(prevState => !prevState)}><FontAwesomeIcon icon={faComment} /></button>
         </div>
-        {toggleComments && <Comments id={props.id}/>}
+        {toggleComments && <Comments id={props.id} pic={props.userPic} name={props.userName} />}
       </li>
   )
 }

@@ -97,3 +97,9 @@
     cursor: pointer;
   }
 }
+
+@media (max-width: 767px) {
+  .change-info-container {
+    width: 400px;
+  }
+}

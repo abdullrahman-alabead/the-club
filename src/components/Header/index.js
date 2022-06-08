@@ -57,7 +57,7 @@ export default function Header() {
             users.map((data) => {
               let user = data.data();
               return user.name.includes(`${searchText}`) ? (
-                <li className="result">{user.name}</li>
+                <li className="result" key={user.id}>{user.name}</li>
               ) : (
                 ""
               );
@@ -65,7 +65,7 @@ export default function Header() {
         </ul>
       </div>
       <div className="user-info">
-        <img src={auth.currentUser.photoURL} className="user-pic" />
+        <img src={auth.currentUser.photoURL} className="user-pic" alt="user-pic" />
         <p className="user-name">{user.displayName}</p>
         <button className="d-menu">
           <div className="menu">

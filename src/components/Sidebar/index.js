@@ -31,8 +31,8 @@ export default function Sidebar() {
         
         {users? users.map(user => {
           let data = user.data();
-          return (<li className='user'>
-          <img className='user-pic' src={data.photo}/>
+          return (<li className='user' key={user.id}>
+          <img className='user-pic' src={data.photo} alt='user-pic'/>
           <p className='user-name'>{data.name}</p>
         </li>)
         }) : <><li className='user'>
