@@ -80,7 +80,7 @@
     margin-bottom: 0.8rem;
     .comment {
       display: flex;
-
+      align-items: center;
       padding: 0.7rem 1rem;
       background-color: v.$post-background;
       border-top-right-radius: 0.8rem;
@@ -95,11 +95,13 @@
     width: 100%;
     .my-comment {
       padding: 0.7rem 1rem;
+      padding-right: 3rem;
       background-color: v.$post-background;
       border: none;
       border-radius: 1rem;
       width: 100%;
       font-size: 1.2rem;
+      overflow-wrap: break-word;
       &:focus {
         outline: none;
       }

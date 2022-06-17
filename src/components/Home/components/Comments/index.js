@@ -38,7 +38,7 @@ export default function Comments(props) {
         {comments &&
           comments.map((comment) => (
             <li className="comment"  key={comment.id}>
-              <img className="user-img" alt="user-pic" style={{width: "25px", borderRadius:"50%", marginRight:"0.5rem"}} src={comment.userPhoto} />
+              <img className="user-img" alt="user-pic" style={{width: "2rem",height: "2rem", borderRadius:"50%", marginRight:"0.5rem"}} src={comment.userPhoto} />
               <p>{comment.comment}</p>
             </li>
           ))}
