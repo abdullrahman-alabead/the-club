@@ -49,25 +49,27 @@ export default function Signup(props) {
     createUserWithEmailAndPassword(auth, data.email, data.password)
       .then((user) => {
         auth.signOut();
-
+        
         // add user info to firestore
         updateProfile(user.user, {
           displayName: data.nickname,
           photoURL:
             "https://firebasestorage.googleapis.com/v0/b/the-club-1.appspot.com/o/defaultPic.jpg?alt=media&token=ca11e0f6-122d-4fd5-aa7f-65386fcf7f56",
         })
-          .then(props.setStage("login"))
+          .then(() => {
+            
+            addDoc(usersCollectionRef, {
+              id: nanoid(),
+              name: data.nickname,
+              photo:
+                "https://firebasestorage.googleapis.com/v0/b/the-club-1.appspot.com/o/defaultPic.jpg?alt=media&token=ca11e0f6-122d-4fd5-aa7f-65386fcf7f56",
+            }).then(() => {
+              props.setStage("login")
+            })
+          } )
           .catch((err) => alert(err.message));
 
-        addDoc(usersCollectionRef, {
-          id: nanoid(),
-          name: data.nickname,
-          photo:
-            "https://firebasestorage.googleapis.com/v0/b/the-club-1.appspot.com/o/defaultPic.jpg?alt=media&token=ca11e0f6-122d-4fd5-aa7f-65386fcf7f56",
-        }).then(() => {
-          document.querySelector(".signup-container").style.animation =
-            "fadeOut 0.5s ease-out forwards";
-        });
+        
       })
       .catch((err) => alert(err.message));
   }
