@@ -54,7 +54,7 @@ export default function Signup(props) {
         updateProfile(user.user, {displayName: data.nickname, photoURL: 'https://firebasestorage.googleapis.com/v0/b/the-club-1.appspot.com/o/defaultPic.jpg?alt=media&token=ca11e0f6-122d-4fd5-aa7f-65386fcf7f56'})
         .then()
         .catch(err => alert(err.message))
-        sendEmailVerification(user.user).then(() => {
+        
           
 
           addDoc(usersCollectionRef, {id:nanoid(),name: data.nickname, photo: 'https://firebasestorage.googleapis.com/v0/b/the-club-1.appspot.com/o/defaultPic.jpg?alt=media&token=ca11e0f6-122d-4fd5-aa7f-65386fcf7f56'})
@@ -64,11 +64,11 @@ export default function Signup(props) {
             "fadeOut 0.5s ease-out forwards";
             
             setTimeout(() => {
-              props.setStage("verify");
+              props.setStage("login");
             }, 500);
           })
           
-        });
+        ;
       })
       .catch((err) => alert(err.message));
   }

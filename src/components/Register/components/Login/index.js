@@ -19,14 +19,9 @@ export default function Login(props) {
     e.preventDefault();
     signInWithEmailAndPassword(auth, data.email, data.password)
     .then(() => {
-      if(auth.currentUser.emailVerified){
         navigate('/home')
-      }else if(!(auth.currentUser.emailVerified)){
-        auth.signOut()
-        alert('email not verified')
-      }
       })
-    .catch(err => console.log(err))
+    .catch(err => alert(err))
     
   }
 
