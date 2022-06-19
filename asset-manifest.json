@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/the-club/static/css/main.113bb119.css",
-    "main.js": "/the-club/static/js/main.88a4459b.js",
+    "main.js": "/the-club/static/js/main.27be08c7.js",
     "static/media/Merriweather-Regular.ttf": "/the-club/static/media/Merriweather-Regular.de3de5d70c3d436eb475.ttf",
     "static/media/Darkest-Saturday.ttf": "/the-club/static/media/Darkest-Saturday.55035e1f04cdc2d78585.ttf",
     "static/media/helvetica-neu.ttf": "/the-club/static/media/helvetica-neu.8a19678078a6b21c8057.ttf",
     "static/media/google-icon.png": "/the-club/static/media/google-icon.4ff9a5f6e189dba3d48e.png",
     "index.html": "/the-club/index.html",
     "main.113bb119.css.map": "/the-club/static/css/main.113bb119.css.map",
-    "main.88a4459b.js.map": "/the-club/static/js/main.88a4459b.js.map"
+    "main.27be08c7.js.map": "/the-club/static/js/main.27be08c7.js.map"
   },
   "entrypoints": [
     "static/css/main.113bb119.css",
-    "static/js/main.88a4459b.js"
+    "static/js/main.27be08c7.js"
   ]
 }
