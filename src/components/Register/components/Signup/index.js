@@ -6,9 +6,9 @@ import { auth, database, app } from "../../../../firebaseConfig";
 import {
   createUserWithEmailAndPassword,
   sendEmailVerification,
-  updateProfile
+  updateProfile,
 } from "firebase/auth";
-import { collection, addDoc } from 'firebase/firestore'
+import { collection, addDoc } from "firebase/firestore";
 import { nanoid } from "nanoid";
 
 export default function Signup(props) {
@@ -32,9 +32,9 @@ export default function Signup(props) {
       return;
     }
     // check for the terms and conditions
-    if(!(document.querySelector("#check-terms").checked)){
-      alert("you have to accept the terms")
-      return
+    if (!document.querySelector("#check-terms").checked) {
+      alert("you have to accept the terms");
+      return;
     }
     // validate email
     if (!validate(data.email)) {
@@ -44,31 +44,30 @@ export default function Signup(props) {
 
     // sign up the user
 
-    let usersCollectionRef = collection(database, 'users')
-
+    let usersCollectionRef = collection(database, "users");
 
     createUserWithEmailAndPassword(auth, data.email, data.password)
       .then((user) => {
-        auth.signOut()
+        auth.signOut();
+
         // add user info to firestore
-        updateProfile(user.user, {displayName: data.nickname, photoURL: 'https://firebasestorage.googleapis.com/v0/b/the-club-1.appspot.com/o/defaultPic.jpg?alt=media&token=ca11e0f6-122d-4fd5-aa7f-65386fcf7f56'})
-        .then()
-        .catch(err => alert(err.message))
-        
-          
+        updateProfile(user.user, {
+          displayName: data.nickname,
+          photoURL:
+            "https://firebasestorage.googleapis.com/v0/b/the-club-1.appspot.com/o/defaultPic.jpg?alt=media&token=ca11e0f6-122d-4fd5-aa7f-65386fcf7f56",
+        })
+          .then(props.setStage("login"))
+          .catch((err) => alert(err.message));
 
-          addDoc(usersCollectionRef, {id:nanoid(),name: data.nickname, photo: 'https://firebasestorage.googleapis.com/v0/b/the-club-1.appspot.com/o/defaultPic.jpg?alt=media&token=ca11e0f6-122d-4fd5-aa7f-65386fcf7f56'})
-          .then(() => {
-
-            document.querySelector(".signup-container").style.animation =
+        addDoc(usersCollectionRef, {
+          id: nanoid(),
+          name: data.nickname,
+          photo:
+            "https://firebasestorage.googleapis.com/v0/b/the-club-1.appspot.com/o/defaultPic.jpg?alt=media&token=ca11e0f6-122d-4fd5-aa7f-65386fcf7f56",
+        }).then(() => {
+          document.querySelector(".signup-container").style.animation =
             "fadeOut 0.5s ease-out forwards";
-            
-            setTimeout(() => {
-              props.setStage("login");
-            }, 500);
-          })
-          
-        ;
+        });
       })
       .catch((err) => alert(err.message));
   }
@@ -91,17 +90,18 @@ export default function Signup(props) {
   // go to signup page
   function navigateLogin() {
     document.querySelector(".signup-container").style.animation =
-            "fadeOut 0.5s ease-out forwards";
+      "fadeOut 0.5s ease-out forwards";
 
-          setTimeout(() => {
-            props.setStage("login");
-          }, 500);
+    setTimeout(() => {
+      props.setStage("login");
+    }, 500);
   }
-
 
   return (
     <div className="signup-container">
-      <button className="goto-login" onClick={navigateLogin}>login</button>
+      <button className="goto-login" onClick={navigateLogin}>
+        login
+      </button>
       <h2 className="sign-up-header header">Sign Up</h2>
       <form onSubmit={signUp}>
         <input
@@ -112,7 +112,13 @@ export default function Signup(props) {
           onChange={handleInput}
           required
         />
-        <input type='text' name='nickname' placeholder='Nickname...' className='name-input' onChange={handleInput}/>
+        <input
+          type="text"
+          name="nickname"
+          placeholder="Nickname..."
+          className="name-input"
+          onChange={handleInput}
+        />
         <input
           type="password"
           name="password"
@@ -132,8 +138,17 @@ export default function Signup(props) {
           required
         />
         <div className="terms">
-        <input type='checkbox' className="check-terms" id="check-terms" />
-        <p>I agree with the <span onClick={() => alert("this is just a test")}>terms of use</span> and <span onClick={() =>alert("this is just a test")}>privacy policy</span></p>
+          <input type="checkbox" className="check-terms" id="check-terms" />
+          <p>
+            I agree with the{" "}
+            <span onClick={() => alert("this is just a test")}>
+              terms of use
+            </span>{" "}
+            and{" "}
+            <span onClick={() => alert("this is just a test")}>
+              privacy policy
+            </span>
+          </p>
         </div>
         <button className="signup-btn btn" onClick={signUp}>
           Sign In
