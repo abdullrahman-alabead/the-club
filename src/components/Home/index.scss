@@ -16,7 +16,7 @@
     display: flex;
     flex-direction: column;
     padding: 1.3rem 1rem;
-    background-color: v.$background-color-3;
+    background-color: v.$post-background;
     border-radius: 1rem;
     margin-bottom: 1rem;
     .new-post-text {
@@ -25,7 +25,7 @@
       border: none;
       width: 60ch;
       max-width: 60ch;
-      background-color: v.$post-background;
+      background-color: v.$background-color-3;
       border-radius: 20px;
       &:focus {
         outline: none;
@@ -47,8 +47,8 @@
         align-items: center;
         justify-content: center;
         border: none;
-        background-color: #d4f5ee;
-        color: v.$background-color-1;
+        background-color: v.$background-color-1;
+        color: v.$button-color;
         cursor: pointer;
       }
       .img-info {
